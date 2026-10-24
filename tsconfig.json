@@ -15,8 +15,8 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": ["./*"],
-      "*": ["./*"]
+      "@/*": ["./src/*"],
+      "*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "isolatedModules": true,
