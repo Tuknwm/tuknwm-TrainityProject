@@ -73,11 +73,6 @@ export default function OwnedProductPage() {
                     <Link href={`/user/belajar/${c.name}`} style={{ flex: 1, textAlign: "center", background: T.green, color: T.greenTxt, borderRadius: "6px", padding: "8px 12px", fontFamily: "var(--font-polysans)", fontSize: "13px", textDecoration: "none", fontWeight: 600 }}>
                       {c.progress === 100 ? "View Details" : c.progress > 0 ? "Continue" : "Start Learning"}
                     </Link>
-                    {c.progress === 100 && (
-                      <Link href={`/user/sertifikat/${c.name}`} style={{ flex: 1, textAlign: "center", background: "rgba(255,255,255,0.06)", color: T.t2, border: `1px solid ${T.border}`, borderRadius: "6px", padding: "8px 12px", fontFamily: "var(--font-polysans)", fontSize: "13px", textDecoration: "none" }}>
-                        Certificate
-                      </Link>
-                    )}
                   </div>
                 </div>
               </div>

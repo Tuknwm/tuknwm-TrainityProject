@@ -346,7 +346,6 @@ function Metrics() {
               {[
                 { q: "Are all courses on Trainity free?", a: "Yes, access to all courses on Trainity is completely free. Just create an account and start learning — no cost, no commitment." },
                 { q: "What topics are available?", a: "Trainity offers three learning tracks: Front End Development (HTML, CSS, JavaScript), Back End Development, and Frameworks & Libraries (React, Next.js, and more)." },
-                { q: "Is there a certificate after completing a course?", a: "Yes, completing a course earns you a certificate you can share on LinkedIn or add to your portfolio." },
                 { q: "Who are the instructors at Trainity?", a: "Trainity's curriculum is backed by Sandhika Galih from Web Programming UNPAS, developed by industry practitioners with real-world experience." },
                 { q: "Can I learn with no prior coding experience?", a: "Absolutely. Every track is designed from the ground up, suitable for complete beginners and those looking to level up their skills." },
                 { q: "How long do I have access to course materials?", a: "Lifetime access. You can revisit any material at any time, with no expiry." },
@@ -428,7 +427,7 @@ function Footer() {
           <div>
             <p style={{ fontFamily: "var(--font-inter)", fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: T.t3, margin: "0 0 16px" }}>Payment</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-              {["/payment/ShopeePay.svg","/payment/QRIS.svg","/payment/GoPay.svg","/payment/OVO.svg","/payment/DANA.svg"].map((src) => (
+              {["/Payment/ShopeePay.svg","/Payment/QRIS.svg","/Payment/GoPay.svg","/Payment/OVO.svg","/Payment/DANA.svg"].map((src) => (
                 <div key={src} style={{ width: "72px", height: "40px", background: "#ffffff", borderRadius: "6px", overflow: "hidden", padding: "5px", flexShrink: 0 }}>
                   <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
                 </div>

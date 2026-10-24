@@ -71,7 +71,7 @@ export default function CheckoutPage() {
           <div>
             <h2 style={{ fontFamily: "var(--font-polysans)", fontSize: "15px", fontWeight: 600, color: T.t1, margin: "0 0 16px" }}>Payment Method</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "28px" }}>
-              {[["shopee","ShopeePay","/payment/ShopeePay.svg"],["qris","QRIS","/payment/QRIS.svg"],["gopay","GoPay","/payment/GoPay.svg"],["ovo","OVO","/payment/OVO.svg"],["dana","DANA","/payment/DANA.svg"]].map(([id, label, img]) => (
+              {[["shopee","ShopeePay","/Payment/ShopeePay.svg"],["qris","QRIS","/Payment/QRIS.svg"],["gopay","GoPay","/Payment/GoPay.svg"],["ovo","OVO","/Payment/OVO.svg"],["dana","DANA","/Payment/DANA.svg"]].map(([id, label, img]) => (
                 <div key={id}
                   style={{ display: "flex", alignItems: "center", gap: "12px", padding: "12px 14px", borderRadius: "8px", border: `1px solid ${T.border}`, opacity: 0.35, cursor: "not-allowed" }}>
                   <div style={{ width: "80px", height: "48px", flexShrink: 0, background: "#ffffff", borderRadius: "6px", overflow: "hidden", padding: "6px" }}>
