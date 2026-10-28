@@ -24,7 +24,7 @@ export default function LoadingScreen() {
     const svg = svgRef.current; const overlay = overlayRef.current; if (!svg || !overlay) return;
     const latinStroke = svg.querySelector("#kurokyu-stroke"); const curvePath = overlay.querySelector("#curvePath"); const emojiEl = overlay.querySelector("#emoji-exit");
     const pathLength = (latinStroke?.getComputedTextLength?.() ?? 600) * 2 || 1200;
-    const tl = gsap.timeline({ onComplete: () => { sessionStorage.setItem("hasVisited", "1"); setVisible(false); window.dispatchEvent(new Event("loading-complete")); window.dispatchEvent(new Event("demo-notice")); } });
+    const tl = gsap.timeline({ onComplete: () => { sessionStorage.setItem("hasVisited", "1"); setVisible(false); } });
     gsap.set("#text-group", { scale: 2, opacity: 0 }); if (latinStroke) gsap.set(latinStroke, { strokeDasharray: pathLength, strokeDashoffset: pathLength, opacity: 0 });
     tl.to("#text-group", { scale: 1, opacity: 1, duration: 1.5, ease: "expo.out" });
     tl.fromTo(".text-path", { strokeDasharray: 450, strokeDashoffset: 450 }, { strokeDashoffset: 0, duration: 1.5, stagger: 0.1, ease: "power2.inOut" }, "-=0.5");
@@ -32,7 +32,7 @@ export default function LoadingScreen() {
     tl.addLabel("neon"); overlay.querySelectorAll(".left-side .char-fill").forEach((el, i) => tl.add(flicker(el, i * 0.1), "neon")); Array.from(overlay.querySelectorAll(".right-side .char-fill")).reverse().forEach((el, i) => tl.add(flicker(el, i * 0.1), "neon"));
     if (latinStroke) { tl.addLabel("latin", "-=0.3"); tl.to(latinStroke, { opacity: 1, duration: 0.1 }, "latin"); tl.to(latinStroke, { strokeDashoffset: 0, duration: 2.5, ease: "power3.inOut" }, "latin"); tl.to(latinStroke, { opacity: 0.18, duration: 1.5 }, "-=0.5"); }
     if (emojiEl) tl.to(emojiEl, { opacity: 1, y: 0, duration: 0.5, ease: "back.out" }, "+=0.5");
-    tl.addLabel("exit", "+=1.5"); tl.to(".bs-info, .bs-bottom-left, #emoji-exit, .loader-container", { opacity: 0, y: -20, duration: 0.5, stagger: 0.05 }, "exit"); if (curvePath) tl.to(curvePath, { attr: { d: "M 0,0 L 1,0 L 1,0 Q 0.5,-0.2 0,0 Z" }, duration: 1.5, ease: "expo.inOut" }, "exit");
+    tl.addLabel("exit", "+=1.5"); tl.to(".bs-info, .bs-bottom-left, #emoji-exit, .loader-container", { opacity: 0, y: -20, duration: 0.5, stagger: 0.05 }, "exit"); if (curvePath) tl.to(curvePath, { attr: { d: "M 0,0 L 1,0 L 1,0 Q 0.5,-0.2 0,0 Z" }, duration: 1, ease: "expo.inOut", onStart: () => { setTimeout(() => { window.dispatchEvent(new Event("loading-complete")); window.dispatchEvent(new Event("demo-notice")); }, 375); } }, "exit");
     return () => tl.kill();
   }, [visible]);
 
