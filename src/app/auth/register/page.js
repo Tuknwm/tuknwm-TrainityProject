@@ -35,6 +35,8 @@ export default function RegisterPage() {
   return (
     <div style={{ minHeight: "100vh", background: T.p1, display: "flex", flexDirection: "column", position: "relative" }}>
       <style>{`
+        @keyframes authNavDrop{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes authCardUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
         @keyframes termCursor{0%,100%{opacity:1}50%{opacity:0}}
         .term-input{background:none;border:none;outline:none;color:#ffffff;font-family:'Courier New',monospace;font-size:13px;padding:0;margin:0;min-width:2px;width:auto;max-width:220px;}
         .term-input::placeholder{color:rgba(255,255,255,0.25);}
@@ -44,7 +46,7 @@ export default function RegisterPage() {
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
         <KineticGrid
           background="#020303"
-          dotColor="rgba(225,252,157,0.45)"
+          dotColor="rgba(225,252,157,0.75)"
           lineColor="rgba(225,252,157,0.18)"
           trailColor="#e1fc9d"
           spacing={40}
@@ -71,7 +73,7 @@ export default function RegisterPage() {
       </header>
 
       <main style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", position: "relative", zIndex: 1 }}>
-        <div style={{ width: "100%", maxWidth: "500px" }}>
+        <div style={{ width: "100%", maxWidth: "500px", animation: "authCardUp .8s .15s cubic-bezier(.22,1,.36,1) both" }}>
 
           <div style={{ background: "rgba(2,3,3,0.80)", border: "1px solid rgba(255,255,255,0.10)", borderRadius: "12px", overflow: "hidden", backdropFilter: "blur(16px)" }}>
 

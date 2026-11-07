@@ -15,7 +15,7 @@ export default function ForgotPasswordPage() {
       `}</style>
 
       <div style={{ position: "fixed", inset: 0, zIndex: 0 }}>
-        <KineticGrid background="#020303" dotColor="rgba(225,252,157,0.45)" lineColor="rgba(225,252,157,0.18)" trailColor="#e1fc9d" spacing={40} radius={220} strength={4} trail={false} />
+        <KineticGrid background="#020303" dotColor="rgba(225,252,157,0.75)" lineColor="rgba(225,252,157,0.18)" trailColor="#e1fc9d" spacing={40} radius={220} strength={4} trail={false} />
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 80% 10%, rgba(41,60,45,0.25) 0%, transparent 50%)", pointerEvents: "none" }} />
       </div>
 

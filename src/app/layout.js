@@ -3,7 +3,6 @@ import LenisProvider from "@/components/LenisProvider";
 import CustomScrollbar from "@/components/CustomScrollbar";
 import { MockAuthProvider } from "@/lib/mockAuth";
 import PageTransition from "@/components/PageTransition";
-import LoadingScreen from "@/LoadingScreen.jsx";
 import DemoNotice from "@/DemoNotice.jsx";
 import MobileRedirect from "@/components/MobileRedirect";
 
@@ -17,7 +16,6 @@ export default function RootLayout({ children }) {
     <html lang="id">
       <body>
         <MobileRedirect>
-          <LoadingScreen />
           <DemoNotice />
           <MockAuthProvider>
             <LenisProvider><PageTransition>{children}</PageTransition></LenisProvider>

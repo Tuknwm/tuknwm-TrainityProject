@@ -3,14 +3,8 @@
 import { useEffect, useState } from "react";
 
 export default function DemoNotice() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(() => !localStorage.getItem("demoNoticeSeen"));
   const [closing, setClosing] = useState(false);
-
-  useEffect(() => {
-    const show = () => setOpen(true);
-    window.addEventListener("demo-notice", show);
-    return () => window.removeEventListener("demo-notice", show);
-  }, []);
 
   if (!open) return null;
 
@@ -27,7 +21,7 @@ export default function DemoNotice() {
           <span style={{ position: "absolute", left: 14, bottom: 10, color: "#fff", fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", textShadow: "0 1px 6px #000" }}>New</span>
           <span style={{ position: "absolute", right: 14, top: 10, color: "#fff", fontSize: 10, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase", textShadow: "0 1px 6px #000" }}>Old</span>
         </div>
-        <button type="button" onClick={() => { setClosing(true); window.setTimeout(() => setOpen(false), 220); }} style={{ marginTop: 24, padding: "10px 18px", border: 0, borderRadius: 8, background: "#e1fc9d", color: "#0f1f0f", fontWeight: 700, cursor: "pointer" }}>Got it</button>
+        <button type="button" onClick={() => { setClosing(true); localStorage.setItem("demoNoticeSeen", "1"); window.setTimeout(() => setOpen(false), 220); }} style={{ marginTop: 24, padding: "10px 18px", border: 0, borderRadius: 8, background: "#e1fc9d", color: "#0f1f0f", fontWeight: 700, cursor: "pointer" }}>Got it</button>
       </div>
       <style>{`@keyframes demoFadeIn{from{opacity:0}to{opacity:1}}@keyframes demoFadeOut{from{opacity:1}to{opacity:0}}@keyframes demoCardIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes demoCardOut{from{opacity:1;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(10px) scale(.98)}}`}</style>
     </div>
